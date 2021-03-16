@@ -23,7 +23,9 @@ What apparix provides:
 - No less excellent, there are several *distant* listing/editing commands.
   In all cases, tab completions work on subdirectories and files (below
 	is the output of the apparix ahoy helper function):
+
 ```
+Apparix functions.
              Below all SUBDIR and FILE can be tab-completed.
 
   bm   MARK               Bookmark current directory as mark
@@ -50,14 +52,14 @@ What apparix provides:
   rme MARK [SUBDIR]       Edit README file
   portal                  Add current dir as portal (subdirs are mark names)
   portal-expand           Re-expand all portals
+  aghast MARK [SUBDIR/]FILE [dummy options] testing the apparix mux function
 --
   Where options passing is indicated above:
-  (1) The sequence has to start with a '-' or '+' character.
-  (2) multiple options with arguments can be passed, but currently an argument
-      containing a space will most likely lead to diminishing returns.
-  aghast MARK [SUBDIR/]FILE is a function for testing the apparix mux function
+   - The sequence has to start with a '-' or '+' character.
+   - Multiple options with arguments can be passed.
+   - FWIW Arguments with spaces in them seemed to work under limited testing.
+     e.g. ae pl main.nf '+set paste'
 ```
-  These helper commands correspond to small bash functions and are easy to add.
 
 Tab completion with apparix works best, IMHO, with cyclic tab completion. This
 is activated by the line `TAB: menu-complete` in the file `$HOME/.inputrc` (and you may
