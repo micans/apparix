@@ -1,0 +1,11 @@
+
+perhaps implement -H (list hidden files) and -P (print prefix) for ald/aldr
+
+als git gi*
+  (don't do that)
+explodes (when expanding to some stuff):
+  Mixed up mess in amux
+  Not a command, ++
+basically no argument was picked up before [mark] [dir]
+
+
