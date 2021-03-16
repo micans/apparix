@@ -1,5 +1,5 @@
 # apparix
-Command line directory bookmarks with subdirectory tab completion, immediate cd, distant listing etc
+Command line directory bookmarks with jumping to bookmarks, subdirectory tab completion, distant listing etc
 
 Apparix is a tiny set of commands implementing directory bookmarking in **bash** and **zsh**.
 You just need the file [.bourne-apparix](https://raw.githubusercontent.com/micans/apparix/main/.bourne-apparix).
