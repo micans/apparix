@@ -21,17 +21,41 @@ What apparix provides:
   `to foo barzoodle/ti<TAB>`
 
 - No less excellent, there are several *distant* listing/editing commands.
-  In all cases, tab completions work on subdirectories and files:
+  In all cases, tab completions work on subdirectories and files (below
+	is the output of the apparix ahoy helper function):
 ```
-  als foo              # list directory for apparix mark (plus optional subdirectories)
-  als foo -ltr         # trailing part that looks like options is passed to ls
-  amd foo              # make directory in apparix mark (plus optional subdirectories)
-  ae foo bar.txt       # edit file in apparix mark (plus o.s.)
-  av foo bar.txt       # view file in apparix mark (p.o.s.)
-  aget foo bar.txt     # copy file from apparix mark (pos)
-  amibm                # Is the current directory a bookmark? Useful in prompt.
-  ald foo              # only list subdirectories of mark
-  aldr foo             # list subdirectories recursively of mark
+             Below all SUBDIR and FILE can be tab-completed.
+
+  bm   MARK               Bookmark current directory as mark
+  to   MARK [SUBDIR]      Jump to mark or a subdirectory of mark
+--
+  als  MARK [SUBDIR] [ls-options]  List mark directory or subdir
+  ald  MARK [SUBDIR]      List subdirectories of mark directory or subdir
+                          ignores hidden directories
+  aldr MARK [SUBDIR]      Like ald, recursively
+  amd  MARK [SUBDIR] [mkdir options] Make directory in mark
+  a    MARK [SUBDIR/]FILE Echo the true location of file, useful
+                          e.g. in: cp file $(a mark dir/file.txt)
+  aget MARK [SUBDIR/]FILE Copy file to current directory
+  agather MARK            List all targets for bookmark mark
+  whence MARK             Menu-based selection for mark with multiple targets
+--
+  ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
+  av MARK [SUBDIR/]FILE [editor options] View file in mark
+--
+  amibm                   See if the current directory is a bookmark
+  bmgrep PATTERN          List all marks where target matches PATTERN
+--
+  todo MARK [SUBDIR]      Edit TODO file in mark directory
+  rme MARK [SUBDIR]       Edit README file
+  portal                  Add current dir as portal (subdirs are mark names)
+  portal-expand           Re-expand all portals
+--
+  Where options passing is indicated above:
+  (1) The sequence has to start with a '-' or '+' character.
+  (2) multiple options with arguments can be passed, but currently an argument
+      containing a space will most likely lead to diminishing returns.
+  aghast MARK [SUBDIR/]FILE is a function for testing the apparix mux function
 ```
   These helper commands correspond to small bash functions and are easy to add.
 
@@ -59,14 +83,26 @@ In the beginning (2005-ish) the system was called Apparix. It was
 implemented in C and shipped with bash wrapper functions and completion code.
 The C code was, in hindsight, a slightly heavy hammer (although it must consume
 many fewer CPU cycles). A simple bash shell reimplementation was undertaken
-many years later, around 2018.  Izaak thought of the name apparish and added
-zsh code and additionally contributed a thorough rewrite of the bash completion
-layer.  Martin added appari-fish to the family. The valley was peaceful for a
+many years later, around 2018 and published in the `micans/bash-utils`
+repository.  Izaak thought of the name apparish and added zsh code and
+additionally contributed a thorough rewrite of the bash completion layer (more
+about that below).
+
+Martin added appari-fish to the family. The valley was peaceful for a
 while.  Early 2021 I realised that I still think of the valley as apparix, so
-I've tweaked documentation and renamed files to revert back to apparix. The
-glorious shell code itself is still apparish-rich. Stay tuned for further
+I've tweaked documentation and renamed files to revert back to apparix, followed
+by moving apparix to its own repository.
+
+The glorious shell code itself is still apparish-rich. Stay tuned for further
 naming shenanigans. More relevant, the bash helper functions are still
 undergoing little tweaks and improvements every now and then. When this happens
 the functionality is described and added to the list of example commands at the top.
 
+A bleedinge edge fork of apparix lives in [this repo](https://github.com/goedel-gang/bash-utils/),
+supporting among other things newlines in the directory name that a bookmark
+points to.  For various reasons (my dinosaur habits among them) that code did
+not make it into this repository. The main reason you might want to use the
+dinosaur code here is that I'm a pretty heavy apparix user and add and change
+things to improve the distant directory experience. When something becomes too
+gnarly I tend to ask Izaak anyway. Happy to'ing!
 
