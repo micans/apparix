@@ -66,10 +66,6 @@ is activated by the line `TAB: menu-complete` in the file `$HOME/.inputrc` (and 
 need as well put `INPUTRC=$HOME/.inputrc` in `$HOME/.bashrc`), or the
 line `bind '"\t":menu-complete'` in `$HOME/.bashrc`. 
 
-Apparix's spiritual home nowadays is right here.
-It previously was at what I would now consider the
-[site of historical documents](http://micans.org/apparix).
-
 Many thanks to Sitaram Chamarty for the original idea of sub-directory
 completion and the first bash implementation thereof, and to Izaak van Dongen
 for the zsh completion code and complete overhaul and improvement of the bash
