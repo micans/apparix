@@ -200,7 +200,7 @@ function amux() {
 
    command=$1
    shift
-   ! apx_silent command -v "$command" && 2>&1 echo "Not a command, $command"
+   [[ -n "$command" ]] && ! apx_silent command -v "$command" && 2>&1 echo "Not a command, $command"
 
    if ! loc=$(apparish "$mark" "$dir"); then
       return 1
