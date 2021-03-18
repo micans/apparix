@@ -69,11 +69,20 @@ is activated by the line `TAB: menu-complete` in the file `$HOME/.inputrc` (and 
 need as well put `INPUTRC=$HOME/.inputrc` in `$HOME/.bashrc`), or the
 line `bind '"\t":menu-complete'` in `$HOME/.bashrc`. 
 
+There are two asymmetries between `aget` and `aput`. The former can only
+retrieve a single file, but tab completion on the (distant) file to be copied
+works. The latter can copy over multiple files, but tab completion is bound
+to the target and hence does not work on the files to be copied. For other cases
+just work with `$(a mark dir)`. This can be combined with globbing, as in
+
+```
+cp $(a mrk)/*.txt .
+```
+
 Many thanks to Sitaram Chamarty for the original idea of sub-directory
 completion and the first bash implementation thereof, and to Izaak van Dongen
 for the zsh completion code and complete overhaul and improvement of the bash
-completion code.
-Thanks to Martin Zuther
+completion code.  Thanks to Martin Zuther
 there is a cool [**fish** implementation](https://github.com/mzuther/appari-fish),
 named appari-fish.
 
