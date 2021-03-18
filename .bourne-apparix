@@ -46,6 +46,7 @@ Apparix functions.
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
                           e.g. in: cp file \$(a mark dir/file.txt)
   aget MARK [SUBDIR/]FILE Copy file to current directory
+  aput MARK [SUBDIR] -- FILE+   Copy files to mark (separator -- required)
   agather MARK            List all targets for bookmark mark
   whence MARK             Menu-based selection for mark with multiple targets
 --
@@ -126,7 +127,7 @@ touch "$APPARIXEXPAND"
 touch "$APPARIXLOG"
 
 APPARIX_FILE_FUNCTIONS=( a ae av aget toot apparish aghast ) # Huffman (remove a)
-APPARIX_DIR_FUNCTIONS=( to als ald aldr amd todo rme )
+APPARIX_DIR_FUNCTIONS=( to als aput ald aldr amd todo rme )
 
 # require one or two
 function apx_onetwo() {
@@ -171,7 +172,9 @@ function amux() {
       if [[ $item == '++' ]]; then
         break
       elif $get_options || [[ $item == [+-]* ]]; then
-        opts+=( "$item" )
+        if [[ $item != '--' ]]; then
+          opts+=( "$item" )
+        fi
         get_options=true
       elif [[ -z "$dir" ]]; then
         dir="$item"
@@ -222,9 +225,18 @@ function apparix_aget_cp() {
     cp -v "$@" .
 }
 
-# apparix get; get something from a mark
+# apparix get; copy something from mark
 function aget() {
     amux "$@" ++ apparix_aget_cp
+}
+
+# apparix put; copy something to mark
+function aput() {
+    if ! apx_elemOf '--' "${@:2:2}"; then
+      echo "Usage: mark [dir] -- <FILE(s)>"
+      return 1
+    fi
+    amux "$@" ++ cp -i
 }
 
 function aghast_test() {
@@ -445,7 +457,7 @@ if [[ -n "$BASH_VERSION" ]]; then
 
     # https://stackoverflow.com/questions/3685970/check-if-a-bash-array-...
     # contains-a-value
-    function elemOf() {
+    function apx_elemOf() {
         local e match="$1"
         shift
         for e; do [[ "$e" == "$match" ]] && return 0; done
@@ -457,14 +469,14 @@ if [[ -n "$BASH_VERSION" ]]; then
         local caller="$1"
         local cur_file="$2"
 
-        if elemOf "$caller" "${APPARIX_DIR_FUNCTIONS[@]}"; then
+        if apx_elemOf "$caller" "${APPARIX_DIR_FUNCTIONS[@]}"; then
             if [[ -n "$APPARIX_BERTRAND_RUSSEL" ]]; then
                 # # Directories (add -S / for slash separator):
                 COMPREPLY=( $(compgen -d -- "$cur_file") )
             else
                 goedel_compfile "$cur_file" d
             fi
-        elif elemOf "$caller" "${APPARIX_FILE_FUNCTIONS[@]}"; then
+        elif apx_elemOf "$caller" "${APPARIX_FILE_FUNCTIONS[@]}"; then
             # complete on filenames. this is a little harder to do nicely.
             if [[ -n "$APPARIX_BERTRAND_RUSSEL" ]]; then
                 COMPREPLY=( $(compgen -f -- "$cur_file") )

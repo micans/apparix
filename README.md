@@ -39,6 +39,7 @@ Apparix functions.
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
                           e.g. in: cp file $(a mark dir/file.txt)
   aget MARK [SUBDIR/]FILE Copy file to current directory
+  aput MARK [SUBDIR] -- FILE+   Copy files to mark (separator -- required)
   agather MARK            List all targets for bookmark mark
   whence MARK             Menu-based selection for mark with multiple targets
 --
