@@ -60,6 +60,7 @@ Apparix functions.
   Where options passing is indicated above:
    - The sequence has to start with a '-' or '+' character.
    - Multiple options with arguments can be passed.
+   - -- occurrences are removed but will start a sequence.
    - FWIW Arguments with spaces in them seemed to work under limited
      testing, e.g. ae pl main.nf '+set paste'
 ```
