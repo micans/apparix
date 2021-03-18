@@ -70,6 +70,11 @@ is activated by the line `TAB: menu-complete` in the file `$HOME/.inputrc` (and 
 need as well put `INPUTRC=$HOME/.inputrc` in `$HOME/.bashrc`), or the
 line `bind '"\t":menu-complete'` in `$HOME/.bashrc`. 
 
+[Get it now](https://raw.githubusercontent.com/micans/apparix/main/.bourne-apparix):
+```
+wget https://raw.githubusercontent.com/micans/apparix/main/.bourne-apparix
+```
+
 There are two asymmetries between `aget` and `aput`. The former can only
 retrieve a single file, but tab completion on the (distant) file to be copied
 works. The latter can copy over multiple files, but tab completion is bound
