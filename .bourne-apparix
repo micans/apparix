@@ -153,11 +153,23 @@ function apx_silent() {
     "$@" > /dev/null 2> /dev/null
 }
 
-# Below is essentially arun from goedel-gang fork of apparix,
-# with a provision added for passing options through to commands.
-#
+# Usage:
+#     amux mark [dir] [opt/or/arg+] ++ command [oPt/oR/aRg+]
+# This will be translated to
+#     command [opt/or/arg+] [oPt/oR/aRg+] TARGET
+# where
+#     [opt/or/arg+]
+# comes from the user commandline invocation
+#     command [oRt/oR/aRg+]
+# comes from the amux-wrapping function The optional sequence of opt-or-arg is
+# recognised/consumed as follows
+# - anything starting with - or + and all subsequent arguments up until ++
+# - among these, -- is a sentinel and will be discarded.
+# This can be used to start FILE+ arguments such as aput does.
+# Note that -- is part of the aput usage itself.
+
 function amux() {
-   local opts=(); local mark=$1; local dir=
+   local optorarg=(); local mark=$1; local dir=
    local copy=( "$@" )
    shift
    local get_options=false
@@ -175,7 +187,7 @@ function amux() {
         break
       elif $get_options || [[ $item == [+-]* ]]; then
         if [[ $item != '--' ]]; then
-          opts+=( "$item" )
+          optorarg+=( "$item" )
         fi
         get_options=true
       elif [[ -z "$dir" ]]; then
@@ -193,7 +205,7 @@ function amux() {
    if ! loc=$(apparish "$mark" "$dir"); then
       return 1
    fi
-   $command "${opts[@]}" "$@" "$loc"
+   $command "${optorarg[@]}" "$@" "$loc"
 }
 
 
