@@ -31,35 +31,37 @@ Apparix functions.
   bm   MARK               Bookmark current directory as mark
   to   MARK [SUBDIR]      Jump to mark or a subdirectory of mark
 --
-  als  MARK [SUBDIR] [ls-options]  List mark directory or subdir
-  ald  MARK [SUBDIR]      List subdirectories of mark directory or subdir
+  als  MARK [SUBDIR] [ls-options]  List mark dir or subdir
+  ald  MARK [SUBDIR]      List subdirs of mark dir or subdir
                           ignores hidden directories
   aldr MARK [SUBDIR]      Like ald, recursively
-  amd  MARK [SUBDIR] [mkdir options] Make directory in mark
+  amd  MARK [SUBDIR] [mkdir options] Make dir in mark
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
-                          e.g. in: cp file $(a mark dir/file.txt)
+                 e.g. in: cp file $(a mark dir/file.txt)
+--
   aget MARK [SUBDIR/]FILE Copy file to current directory
-  aput MARK [SUBDIR] -- FILE+   Copy files to mark (separator -- required)
-  agather MARK            List all targets for bookmark mark
-  whence MARK             Menu-based selection for mark with multiple targets
+  aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
 --
   ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
   av MARK [SUBDIR/]FILE [editor options] View file in mark
 --
-  amibm                   See if the current directory is a bookmark
+  amibm                   See if current directory is a bookmark
   bmgrep PATTERN          List all marks where target matches PATTERN
 --
-  todo MARK [SUBDIR]      Edit TODO file in mark directory
+  agather MARK            List all targets for bookmark mark
+  whence MARK             Menu selection for mark with multiple targets
+--
+  todo MARK [SUBDIR]      Edit TODO file in mark dir
   rme MARK [SUBDIR]       Edit README file
-  portal                  Add current dir as portal (subdirs are mark names)
+  portal                  current directory subdirs become mark names
   portal-expand           Re-expand all portals
-  aghast MARK [SUBDIR/]FILE [dummy options] testing the apparix mux function
+  aghast MARK [SUBDIR/]FILE [dummy options] testing the apparix muxer
 --
   Where options passing is indicated above:
    - The sequence has to start with a '-' or '+' character.
    - Multiple options with arguments can be passed.
-   - FWIW Arguments with spaces in them seemed to work under limited testing.
-     e.g. ae pl main.nf '+set paste'
+   - FWIW Arguments with spaces in them seemed to work under limited
+     testing, e.g. ae pl main.nf '+set paste'
 ```
 
 Tab completion with apparix works best, IMHO, with cyclic tab completion. This
