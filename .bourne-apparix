@@ -44,7 +44,7 @@ Apparix functions.
   aldr MARK [SUBDIR]      Like ald, recursively
   amd  MARK [SUBDIR] [mkdir options] Make dir in mark
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
-                 e.g. in: cp file \$(a mark dir/file.txt)
+                 e.g. in: cp file \$(a mark dir)
 --
   aget MARK [SUBDIR/]FILE Copy file to current directory
   aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
@@ -259,7 +259,7 @@ function aghast_test() {
 }
 
 function aghast() {
-    amux "$@" ++ aghast_test --
+    amux "$@" ++ aghast_test -- test1 test2
 }
 
 # apparix listing of directories (rather than files) directly below mark.
