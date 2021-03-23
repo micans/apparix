@@ -28,7 +28,7 @@
 #  names here use apparish.  I prefer to think of the abstract system itself as
 #  apparix. Never mind!
 #
-#  							An overview of apparix functionality.
+#    An overview of apparix functionality.
 
 function ahoy() {
     cat <<EOH
@@ -419,20 +419,20 @@ function rme() {
 }
 
 function apx_amibm () {
-		command grep -- ",$(apx_grepsanitise "$PWD")$" "$APPARIXRC" | cut -f 2 -d ','
+    command grep -- ",$(apx_grepsanitise "$PWD")$" "$APPARIXRC" | cut -f 2 -d ','
 }
 
 function apx2_amibm () {
-  	for tag in $(apx_amibm); do
-    		local path=$(apparish $tag)
-    		local annot
+    for tag in $(apx_amibm); do
+        local path=$(apparish $tag)
+        local annot
         if [[ "$path" != "$PWD" ]]; then
             annot='-'
         elif (( $(agather "$tag" | wc -l) > 1 )); then
             annot='+'
         fi
-    		echo "$annot$tag$annot"
-  	done
+        echo "$annot$tag$annot"
+    done
 }
 
 # apparix search bookmark
