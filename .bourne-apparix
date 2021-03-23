@@ -431,7 +431,7 @@ function apx2_amibm () {
         elif (( $(agather "$tag" | wc -l) > 1 )); then
             annot='+'
         fi
-        echo "$annot$tag$annot"
+        echo "$tag$annot"
     done
 }
 
