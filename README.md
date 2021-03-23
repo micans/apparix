@@ -77,13 +77,13 @@ wget https://raw.githubusercontent.com/micans/apparix/main/.bourne-apparix
 ```
 
 Apparix allows the same mark to point to different directories.
-This can be useful e.g. for changing projects associated with the
-same collaborator, or simply using a `now` bookmark for the current
+This can be useful e.g. for subsequent projects with a common theme or
+associated with the same collaborator, or simply using a `now` bookmark for the current
 project. The `to` jump command will use the last occurrence in the resource file
-as the destination to use. I find it useful to keep the older destinations
+as the destination to use (default target). I find it useful to keep the older destinations
 around as a trail of my activities. Use `agather` to view all associated
 targets, use `whence` to pick an older destination,
-or edit the resource file with `via` to reorder priorities.
+or edit the resource file with `via` to change the default target.
 
 I use `amibm` in `PROMPT_COMMAND`. It lists the marks under which the current
 directory `$PWD` is known. Let's call a mark `mrk` with multiple directories a
