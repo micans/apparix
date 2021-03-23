@@ -88,7 +88,7 @@ or edit the resource file with `via` to reorder priorities.
 I use `amibm` in `PROMPT_COMMAND`. It lists the marks under which the current
 directory `$PWD` is known. Let's call a mark `mrk` with multiple directories a
 multi-mark. Now `mrk` is listed by `amibm` as `mrk-` if it is a multi-mark and
-$PWD is not the default (last-listed) target, as `mrk+` if it is a multimark
+`$PWD` is not the default (last-listed) target, as `mrk+` if it is a multimark
 and `$PWD` *is* the default target, and just as `mrk` if `$PWD` is the unique
 target.
 
