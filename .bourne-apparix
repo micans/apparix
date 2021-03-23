@@ -418,12 +418,28 @@ function rme() {
     toot "$@" README
 }
 
-# apparix search bookmark
-# TODO: fix when cwd has newlines in
-function amibm() {
-    command grep -- ",$(apx_grepsanitise "$PWD")$" "$APPARIXRC" | \
-        cut -f 2 -d ',' | paste -s -d ' ' -
+function apx_amibm () {
+		command grep -- ",$(apx_grepsanitise "$PWD")$" "$APPARIXRC" | cut -f 2 -d ','
 }
+
+function apx2_amibm () {
+  	for tag in $(apx_amibm); do
+    		local path=$(apparish $tag)
+    		local annot
+        if [[ "$path" != "$PWD" ]]; then
+            annot='-'
+        elif (( $(agather "$tag" | wc -l) > 1 )); then
+            annot='+'
+        fi
+    		echo "$annot$tag$annot"
+  	done
+}
+
+# apparix search bookmark
+function amibm() {
+  echo $(apx2_amibm)
+}
+
 
 # apparix search bookmark
 function bmgrep() {
