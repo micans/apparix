@@ -14,8 +14,9 @@ What apparix provides:
 - Even better, jump to the subdirectory `barzoodle` of `foo` using\
   `to foo barzoodle`
 
-- Even betterer, use tab completion with subdirectory jumping:\
-  `to foo b<TAB>`
+- Even betterer, use cyclic tab completion with subdirectory jumping:\
+  `to foo b<TAB>`\
+  👆 This is the oomphiest bit.
 
 - This works at arbitrary levels:\
   `to foo barzoodle/ti<TAB>`
@@ -74,6 +75,23 @@ line `bind '"\t":menu-complete'` in `$HOME/.bashrc`.
 ```
 wget https://raw.githubusercontent.com/micans/apparix/main/.bourne-apparix
 ```
+
+Apparix allows the same mark to point to different directories.
+This can be useful e.g. for changing projects associated with the
+same collaborator, or simply using a `now` bookmark for the current
+project. The `to` jump command will use the last occurrence in the resource file
+as the destination to use. I find it useful to keep the older destinations
+around as a trail of my activities. Use `agather` to view all associated
+targets, use `whence` to pick an older destination,
+or edit the resource file with `via` to reorder priorities.
+
+I use `amibm` in `PROMPT_COMMAND`. It lists the marks under which the current
+directory `$PWD` is known. Let's call a mark `mrk` with multiple directories a
+multi-mark. Now `mrk` is listed by `amibm` as `mrk-` if it is a multi-mark and
+$PWD is not the default (last-listed) target, as `mrk+` if it is a multimark
+and `$PWD` *is* the default target, and just as `mrk` if `$PWD` is the unique
+target.
+
 
 There are two asymmetries between `aget` and `aput`. The former can only
 retrieve a single file, but tab completion on the (distant) file to be copied
