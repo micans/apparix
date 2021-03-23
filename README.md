@@ -17,7 +17,7 @@ What apparix provides:
 - Even betterer, use tab completion with subdirectory jumping:\
   `to foo b<TAB>`
 
-- Even even betterer, this works at arbitrary levels:\
+- This works at arbitrary levels:\
   `to foo barzoodle/ti<TAB>`
 
 - No less excellent, there are several *distant* listing/editing commands.
@@ -37,7 +37,7 @@ Apparix functions.
   aldr MARK [SUBDIR]      Like ald, recursively
   amd  MARK [SUBDIR] [mkdir options] Make dir in mark
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
-                 e.g. in: cp file $(a mark dir/file.txt)
+                 e.g. in: cp file $(a mark dir)
 --
   aget MARK [SUBDIR/]FILE Copy file to current directory
   aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
@@ -107,18 +107,17 @@ about that below).
 Martin added appari-fish to the family. The valley was peaceful for a
 while.  Early 2021 I realised that I still think of the valley as apparix, so
 I've tweaked documentation and renamed files to revert back to apparix, followed
-by moving apparix to its own repository.
-
-The glorious shell code itself is still apparish-rich. Stay tuned for further
-naming shenanigans. More relevant, the bash helper functions are still
-undergoing little tweaks and improvements every now and then. When this happens
-the functionality is described and added to the list of example commands at the top.
+by moving it to its own repository.
 
 A bleedinge edge fork of apparix lives in [this repo](https://github.com/goedel-gang/bash-utils/),
 supporting among other things newlines in the directory name that a bookmark
 points to.  For various reasons (my dinosaur habits among them) that code did
 not make it into this repository. The main reason you might want to use the
-dinosaur code here is that I'm a pretty heavy apparix user and add and change
-things to improve the distant directory experience. When something becomes too
-gnarly I tend to ask Izaak anyway. Happy to'ing!
+dinosaur code here is that I'm a pretty heavy apparix user and live
+the distant directory experience every day.
+The bash helper functions occassionally receive little additions and
+improvements. When this happens the functionality is
+described and added to the list of example commands at the top.
+Happy to'ing!
+
 
