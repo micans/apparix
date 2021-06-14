@@ -425,7 +425,7 @@ function apx_amibm () {
 function apx2_amibm () {
     for tag in $(apx_amibm); do
         local path=$(apparish $tag)
-        local annot
+        local annot=""
         if [[ "$path" != "$PWD" ]]; then
             annot='-'
         elif (( $(agather "$tag" | wc -l) > 1 )); then
