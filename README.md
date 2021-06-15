@@ -90,7 +90,18 @@ directory `$PWD` is known. Let's call a mark `mrk` with multiple directories a
 multi-mark. Now `mrk` is listed by `amibm` as `mrk-` if it is a multi-mark and
 `$PWD` is not the default (last-listed) target, as `mrk+` if it is a multimark
 and `$PWD` *is* the default target, and just as `mrk` if `$PWD` is the unique
-target.
+target. As a contrived example, suppose this is the location where apparix source code lives:
+```
+> /git/micans/apparix (main *%) (ax+ a- apx) pwd
+/home/stijn/git/micans/apparix
+> /git/micans/apparix (main *%) (ax+ a- apx) amibm 
+ax+ a- apx
+```
+It shows that the location `/home/stijn/git/micans/apparix` (that is, `$PWD`)
+is associated with three bookmarks, two of which have this location as default target
+The mark `apx` is unique. The mark `ax` points to `$PWD`
+but has other (older) targets as well. The mark `a` points to another path
+and `$PWD` is an older target.
 
 
 There are two asymmetries between `aget` and `aput`. The former can only
