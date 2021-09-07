@@ -32,7 +32,7 @@
 
 function ahoy() {
     cat <<EOH
-Apparix functions.
+Apparix functions, grouped and roughly ordered by expected use.
              Below all SUBDIR and FILE can be tab-completed.
 
   bm   MARK               Bookmark current directory as mark
