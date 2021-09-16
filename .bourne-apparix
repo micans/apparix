@@ -419,7 +419,7 @@ function rme() {
 }
 
 function apx_amibm () {
-    command grep -- ",$(apx_grepsanitise "$PWD")$" "$APPARIXRC" | cut -f 2 -d ','
+    command grep -- "j,.*,$(apx_grepsanitise "$PWD")$" "$APPARIXRC" "$APPARIXEXPAND" | cut -f 2 -d ','
 }
 
 function apx2_amibm () {
