@@ -25,8 +25,14 @@ What apparix provides:
   In all cases, tab completions work on subdirectories and files (below
 	is the output of the apparix ahoy helper function):
 
+When I mentioned that the set of commands is tiny, what I really meant
+was that the set of cd-related command is tiny; basically `bm` and `to`.
+It turns out that having bookmarks for directories is useful for other commands
+as well, such as distant listing, finding and editing, plus convenience
+queries such as the age old queston: Am I a Bookmark?
+
 ```
-Apparix functions.
+Apparix functions, grouped and roughly ordered by expected use.
              Below all SUBDIR and FILE can be tab-completed.
 
   bm   MARK               Bookmark current directory as mark

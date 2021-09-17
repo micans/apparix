@@ -9,7 +9,7 @@ open(S, '>rrrrme.md') || die "No write";
 
 my $text = <R>; close(R);
 
-my $anchor = 'ahoy helper function):';
+my $anchor = 'Am I a Bookmark?';
 my $ahoy = qx{'bash' '-c' 'source .bourne-apparix; ahoy'};
 
 if ($text =~ s/\Q$anchor\E\s+```(.*?)```/$anchor\n\n```\n$ahoy```/s) {
