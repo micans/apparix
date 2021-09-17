@@ -29,7 +29,7 @@ When I mentioned that the set of commands is tiny, what I really meant
 was that the set of cd-related command is tiny; basically `bm` and `to`.
 It turns out that having bookmarks for directories is useful for other commands
 as well, such as distant listing, finding and editing, plus convenience
-queries such as the age old queston: Am I a Bookmark?
+queries such as the age old question: Am I a Bookmark?
 
 ```
 Apparix functions, grouped and roughly ordered by expected use.
@@ -150,7 +150,7 @@ points to.  For various reasons (my dinosaur habits among them) that code did
 not make it into this repository. The main reason you might want to use the
 dinosaur code here is that I'm a pretty heavy apparix user and live
 the distant directory experience every day.
-The bash helper functions occassionally receive little additions and
+The bash helper functions occasionally receive little additions and
 improvements. When this happens the functionality is
 described and added to the list of example commands at the top.
 Happy to'ing!
