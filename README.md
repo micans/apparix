@@ -37,7 +37,7 @@ Apparix functions, grouped and roughly ordered by expected use.
 
   bm   MARK               Bookmark current directory as mark
   to   MARK [SUBDIR]      Jump to mark or a subdirectory of mark
---
+----------------------------------------------
   als  MARK [SUBDIR] [ls-options]  List mark dir or subdir
   ald  MARK [SUBDIR]      List subdirs of mark dir or subdir
                           ignores hidden directories
@@ -45,25 +45,25 @@ Apparix functions, grouped and roughly ordered by expected use.
   amd  MARK [SUBDIR] [mkdir options] Make dir in mark
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
                  e.g. in: cp file $(a mark dir)
---
+---------------------------------
   aget MARK [SUBDIR/]FILE Copy file to current directory
   aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
---
+-----------------------------
   ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
   av MARK [SUBDIR/]FILE [editor options] View file in mark
---
+------------------------
   amibm                   See if current directory is a bookmark
   bmgrep PATTERN          List all marks where target matches PATTERN
---
+--------------------
   agather MARK            List all targets for bookmark mark
   whence MARK             Menu selection for mark with multiple targets
---
+----------------
   todo MARK [SUBDIR]      Edit TODO file in mark dir
   rme MARK [SUBDIR]       Edit README file
   portal                  current directory subdirs become mark names
   portal-expand           Re-expand all portals
   aghast MARK [SUBDIR/]FILE [dummy options] testing the apparix muxer
---
+-------
   Where options passing is indicated above:
    - The sequence has to start with a '-' or '+' character.
    - Multiple options with arguments can be passed.
