@@ -131,9 +131,11 @@ named appari-fish.
 ## Apparix/apparish developments, past and ongoing
 
 In the beginning (2005-ish) the system was called Apparix. It was
-implemented in C and shipped with bash wrapper functions and completion code.
-The C code was, in hindsight, a slightly heavy hammer (although it must consume
-many fewer CPU cycles). A simple bash shell reimplementation was undertaken
+implemented in C and shipped with bash wrapper functions and tab completion.
+Sitaram Chamarty got in touch, instigated subdirectory tab completion and
+contributed the bash code, adding pivotal oomph to apparix.
+The C code was, in hindsight, a slightly heavy hammer.
+A simple bash shell reimplementation was undertaken
 many years later, around 2018 and published in the `micans/bash-utils`
 repository.  Izaak thought of the name apparish and added zsh code and
 additionally contributed a thorough rewrite of the bash completion layer (more
@@ -144,7 +146,7 @@ while.  Early 2021 I realised that I still think of the valley as apparix, so
 I've tweaked documentation and renamed files to revert back to apparix, followed
 by moving it to its own repository.
 
-A bleedinge edge fork of apparix lives in [this repo](https://github.com/goedel-gang/bash-utils/),
+A bleeding edge fork of apparix lives in [this repo](https://github.com/goedel-gang/bash-utils/),
 supporting among other things newlines in the directory name that a bookmark
 points to.  For various reasons (my dinosaur habits among them) that code did
 not make it into this repository. The main reason you might want to use the
