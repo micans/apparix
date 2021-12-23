@@ -15,7 +15,7 @@ What apparix provides:
   `to foo barzoodle`
 
 - Even betterer, use cyclic tab completion with subdirectory jumping:\
-  `to foo b<TAB>`\
+  `to foo b<TAB>` or just `to foo <TAB>`\
   👆 This is the oomphiest bit.
 
 - This works at arbitrary levels:\
