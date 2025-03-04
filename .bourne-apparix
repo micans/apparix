@@ -129,7 +129,7 @@ touch "$APPARIXRC"
 touch "$APPARIXEXPAND"
 touch "$APPARIXLOG"
 
-APPARIX_FILE_FUNCTIONS=( a ae av aget toot apparish aghast ) # Huffman (remove a)
+APPARIX_FILE_FUNCTIONS=( a ae av acat aget toot apparish aghast ) # Huffman (remove a)
 APPARIX_DIR_FUNCTIONS=( to als aput ald aldr amd todo rme )
 
 # require one or two
@@ -223,6 +223,11 @@ function amd() {
 # apparix view of file
 function av() {
     amux "$@" ++ view --
+}
+
+# apparix cat of file
+function acat() {
+    amux "$@" ++ cat --
 }
 
 # apparix edit of file
