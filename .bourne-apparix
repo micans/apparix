@@ -46,8 +46,9 @@ Apparix functions, grouped and roughly ordered by expected use.
   a    MARK [SUBDIR/]FILE Echo the true location of file, useful
                  e.g. in: cp file \$(a mark dir)
 ---------------------------------
-  aget MARK [SUBDIR/]FILE Copy file to current directory
+  aget MARK [SUBDIR/]FILE       Copy file to current directory
   aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
+  acat MARK [SUBDIR/]FILE       Cat file
 -----------------------------
   ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
   av MARK [SUBDIR/]FILE [editor options] View file in mark
