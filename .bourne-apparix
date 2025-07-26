@@ -309,16 +309,6 @@ else
     >&2 echo "Apparix: not aliasing via"
 fi
 
-if ! apx_silent bind -q menu-complete; then
-    cat <<EOH
---> Consider adding the line
-bind '"\t":menu-complete'
-<-- to e.g. $HOME/.bashrc
-This enables cyclic tab completion on directories and files below apparix marks.
-We apologise profusely for this interruption.
-EOH
-fi
-
 function apparish() {
     if [[ 0 == "$#" ]]; then
         cat -- "$APPARIXRC" "$APPARIXEXPAND" | tr ', ' '\t_' | column -t
@@ -636,6 +626,16 @@ if [[ -n "$BASH_VERSION" ]]; then
     complete -o nospace $apparix_o_nosort -F _apparix_comp \
             "${APPARIX_FILE_FUNCTIONS[@]}" "${APPARIX_DIR_FUNCTIONS[@]}"
     unset apparix_o_nosort
+
+    if ! apx_silent bind -q menu-complete; then
+        cat <<EOH
+--> Consider adding the line
+bind '"\t":menu-complete'
+<-- to e.g. $HOME/.bashrc
+This enables cyclic tab completion on directories and files below apparix marks.
+We apologise profusely for this interruption.
+EOH
+    fi
 
 elif [[ -n "$ZSH_VERSION" ]]; then
     # Use zsh's completion system, as this seems a lot more robust, rather
