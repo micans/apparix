@@ -37,24 +37,26 @@ Apparix functions, grouped and roughly ordered by expected use.
 
   bm   MARK               Bookmark current directory as mark
   to   MARK [SUBDIR]      Jump to mark or a subdirectory of mark
+-----------------------------
+  ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
+  av MARK [SUBDIR/]FILE [editor options] View file in mark
+---------------------------------
+  aget MARK [SUBDIR/]FILE       Copy file to current directory
+  aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
+  acat MARK [SUBDIR/]FILE       Cat file
+----------------------------------------------
+  amd  MARK [SUBDIR] [mkdir options] Make dir in mark
+  a    MARK [SUBDIR/]FILE Echo the true location of file, useful
+                 e.g. in: cp file $(a mark dir)
 ----------------------------------------------
   als  MARK [SUBDIR] [ls-options]  List mark dir or subdir
   ald  MARK [SUBDIR]      List subdirs of mark dir or subdir
                           ignores hidden directories
   aldr MARK [SUBDIR]      Like ald, recursively
-  amd  MARK [SUBDIR] [mkdir options] Make dir in mark
-  a    MARK [SUBDIR/]FILE Echo the true location of file, useful
-                 e.g. in: cp file \$(a mark dir)
----------------------------------
-  aget MARK [SUBDIR/]FILE       Copy file to current directory
-  aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
-  acat MARK [SUBDIR/]FILE       Cat file
------------------------------
-  ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
-  av MARK [SUBDIR/]FILE [editor options] View file in mark
 ------------------------
   amibm                   See if current directory is a bookmark
-  ayup                    List . and all parents along bookmark names
+  above                   List . and all parents along bookmark names
+  below                   List . and all children along bookmark names
   bmgrep PATTERN          List all marks where target matches PATTERN
 --------------------
   agather MARK            List all targets for bookmark mark
@@ -296,7 +298,11 @@ find -L "$loc" -mindepth 1 -type d -a \( -name ".*" -prune -o -printf '%P\n' \)
     fi
 }
 
-function ayup() {
+function below() {
+  command grep -h "^j,.*,$(apx_grepsanitise "$PWD")" "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -nk 2 | xargs printf "%-20s%s\n"
+}
+
+function above() {
   ( while true; do
     if [[ $PWD == '/' ]]; then break; fi
     bm="$(amibm)"
@@ -427,7 +433,7 @@ function rme() {
 }
 
 function apx_amibm () {
-    command grep -- "^j,.*,$(apx_grepsanitise "$PWD")$" "$APPARIXRC" "$APPARIXEXPAND" | cut -f 2 -d ','
+    command grep -h "^j,.*,$(apx_grepsanitise "$PWD")$" "$APPARIXRC" "$APPARIXEXPAND" | cut -f 2 -d ','
 }
 
 function apx2_amibm () {

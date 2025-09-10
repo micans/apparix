@@ -28,9 +28,10 @@ When I mentioned that the set of commands is tiny, what I really meant
 was that the set of cd-related command is tiny; basically `bm` and `to`.
 Having bookmarks for directories is useful for other commands
 as well, such as distant listing, finding and editing, plus convenience
-queries such as the age old questions: Am I a Bookmark (`amibm`)
-and Am I or Is Any of My Parents a Bookmark (`ayup`)?
-Below is the output of the apparix `ahoy` helper function:
+queries such as the age old questions: Am I a Bookmark? (`amibm`)
+Am I or Is Any of My Parents a Bookmark? (`above`), and
+Am I or is Any of My Children a Bookmark? (`below`).
+The following table is the output of the apparix `ahoy` helper function:
 
 
 ```
@@ -57,7 +58,8 @@ Apparix functions, grouped and roughly ordered by expected use.
   aldr MARK [SUBDIR]      Like ald, recursively
 ------------------------
   amibm                   See if current directory is a bookmark
-  ayup                    List . and all parents along bookmark names
+  above                   List . and all parents along bookmark names
+  below                   List . and all children along bookmark names
   bmgrep PATTERN          List all marks where target matches PATTERN
 --------------------
   agather MARK            List all targets for bookmark mark
@@ -114,7 +116,7 @@ The mark `apx` is unique. The mark `ax` points to `$PWD`
 but has other (older) targets as well. The mark `a` points to another path
 and `$PWD` is an older target.
 
-To list all bookmarks traversing upwards use `ayup`. This can be useful to
+To list all bookmarks traversing upwards use `above`. This can be useful to
 orient yourself when deep in some file hierarchy. Output e.g.
 
 ```
