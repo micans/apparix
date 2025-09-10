@@ -113,6 +113,16 @@ The mark `apx` is unique. The mark `ax` points to `$PWD`
 but has other (older) targets as well. The mark `a` points to another path
 and `$PWD` is an older target.
 
+To list all bookmarks traversing upwards use `ayup`. This can be useful to
+orient yourself when deep in some file hierarchy. Output e.g.
+
+```
+ax+ a- apx          /home/stijn/git/micans/apparix
+gm                  /home/stijn/git/micans
+git                 /home/stijn/git
+h                   /home/stijn
+                    /home
+```
 
 There are two asymmetries between `aget` and `aput`. The former can only
 retrieve a single file, but tab completion on the (distant) file to be copied
