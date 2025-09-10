@@ -29,8 +29,8 @@ When I mentioned that the set of commands is tiny, what I really meant
 was that the set of cd-related command is tiny; basically `bm` and `to`.
 It turns out that having bookmarks for directories is useful for other commands
 as well, such as distant listing, finding and editing, plus convenience
-queries such as the age old questions: Am I a Bookmark (`amibm`) and
-Am I or any of my parents a bookmark (`ayup`)?
+queries such as the age old questions: Am I a Bookmark (`amibm`)
+and Am I or Is Any of My Parents a Bookmark (`ayup`)?
 
 ```
 Apparix functions, grouped and roughly ordered by expected use.
@@ -38,21 +38,22 @@ Apparix functions, grouped and roughly ordered by expected use.
 
   bm   MARK               Bookmark current directory as mark
   to   MARK [SUBDIR]      Jump to mark or a subdirectory of mark
+-----------------------------
+  ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
+  av MARK [SUBDIR/]FILE [editor options] View file in mark
+---------------------------------
+  aget MARK [SUBDIR/]FILE       Copy file to current directory
+  aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
+  acat MARK [SUBDIR/]FILE       Cat file
+----------------------------------------------
+  amd  MARK [SUBDIR] [mkdir options] Make dir in mark
+  a    MARK [SUBDIR/]FILE Echo the true location of file, useful
+                 e.g. in: cp file $(a mark dir)
 ----------------------------------------------
   als  MARK [SUBDIR] [ls-options]  List mark dir or subdir
   ald  MARK [SUBDIR]      List subdirs of mark dir or subdir
                           ignores hidden directories
   aldr MARK [SUBDIR]      Like ald, recursively
-  amd  MARK [SUBDIR] [mkdir options] Make dir in mark
-  a    MARK [SUBDIR/]FILE Echo the true location of file, useful
-                 e.g. in: cp file $(a mark dir)
----------------------------------
-  aget MARK [SUBDIR/]FILE       Copy file to current directory
-  aput MARK [SUBDIR] -- FiLE+   Copy files to mark (-- required)
-  acat MARK [SUBDIR/]FILE       Cat file
------------------------------
-  ae MARK [SUBDIR/]FILE [editor options] Edit file in mark
-  av MARK [SUBDIR/]FILE [editor options] View file in mark
 ------------------------
   amibm                   See if current directory is a bookmark
   ayup                    List . and all parents along bookmark names
