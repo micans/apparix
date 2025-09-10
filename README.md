@@ -54,6 +54,7 @@ Apparix functions, grouped and roughly ordered by expected use.
   av MARK [SUBDIR/]FILE [editor options] View file in mark
 ------------------------
   amibm                   See if current directory is a bookmark
+  ayup                    List . and all parents along bookmark names
   bmgrep PATTERN          List all marks where target matches PATTERN
 --------------------
   agather MARK            List all targets for bookmark mark
