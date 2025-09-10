@@ -299,7 +299,7 @@ find -L "$loc" -mindepth 1 -type d -a \( -name ".*" -prune -o -printf '%P\n' \)
 }
 
 function below() {
-  command grep -h "^j,.*,$(apx_grepsanitise "$PWD")" "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -nk 2 | xargs printf "%-20s%s\n"
+  command grep -h "^j,.*,$(apx_grepsanitise "$PWD")" "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -k 2 | xargs printf "%-20s%s\n"
 }
 
 function above() {
