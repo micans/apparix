@@ -29,7 +29,8 @@ When I mentioned that the set of commands is tiny, what I really meant
 was that the set of cd-related command is tiny; basically `bm` and `to`.
 It turns out that having bookmarks for directories is useful for other commands
 as well, such as distant listing, finding and editing, plus convenience
-queries such as the age old question: Am I a Bookmark?
+queries such as the age old questions: Am I a Bookmark (`amibm`) and
+Am I or any of my parents a bookmark (`ayup`)?
 
 ```
 Apparix functions, grouped and roughly ordered by expected use.
