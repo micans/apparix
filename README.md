@@ -98,6 +98,22 @@ around as a trail of my activities. Use `agather` to view all associated
 targets, use `whence` to pick an older destination,
 or edit the resource file with `via` to change the default target.
 
+To list all bookmarks traversing upwards use `above`. This can be useful to
+re-orient yourself when deep in some file hierarchy. Output e.g.
+
+```
+ax+ a- apx          /home/stijn/git/micans/apparix
+gm                  /home/stijn/git/micans
+git                 /home/stijn/git
+h                   /home/stijn
+                    /home
+```
+
+Similarly to list all bookmarks traversing the tree below the current directory use `below`.
+`below` takes an optional integer argument `k`, limiting the output to paths with no more
+than `k` steps below the current directory.
+
+
 I use `amibm` in `PROMPT_COMMAND`. It lists the marks under which the current
 directory `$PWD` is known. Let's call a mark `mrk` with multiple directories a
 multi-mark. Now `mrk` is listed by `amibm` as `mrk-` if it is a multi-mark and
@@ -115,17 +131,6 @@ is associated with three bookmarks, two of which have this location as default t
 The mark `apx` is unique. The mark `ax` points to `$PWD`
 but has other (older) targets as well. The mark `a` points to another path
 and `$PWD` is an older target.
-
-To list all bookmarks traversing upwards use `above`. This can be useful to
-orient yourself when deep in some file hierarchy. Output e.g.
-
-```
-ax+ a- apx          /home/stijn/git/micans/apparix
-gm                  /home/stijn/git/micans
-git                 /home/stijn/git
-h                   /home/stijn
-                    /home
-```
 
 There are two asymmetries between `aget` and `aput`. The former can only
 retrieve a single file, but tab completion on the (distant) file to be copied

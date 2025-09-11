@@ -299,14 +299,21 @@ find -L "$loc" -mindepth 1 -type d -a \( -name ".*" -prune -o -printf '%P\n' \)
 }
 
 function below() {
-  command grep -h "^j,.*,$(apx_grepsanitise "$PWD")" "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -k 2 | xargs printf "%-20s%s\n"
+  if [[ -z $1 ]]; then
+     command grep -h "^j,.*,$(apx_grepsanitise "$PWD")" "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -k 2 | xargs printf "%-20s %s\n"
+  else
+     join -1 2 -2 1 -o 1.1,1.2  \
+        <(cat "$APPARIXRC" "$APPARIXEXPAND" | tr ',' '\t' | cut -f 2,3 | sort -k 2) \
+        <(find $PWD -maxdepth $1 | sort) \
+     | cut -f 2,1 | xargs printf "%-20s %s\n"
+  fi
 }
 
 function above() {
   ( while true; do
     if [[ $PWD == '/' ]]; then break; fi
     bm="$(amibm)"
-    printf "%-20s%s\n" "$bm" "$PWD"
+    printf "%-20s %s\n" "$bm" "$PWD"
     prev=$PWD
     cd ..
     if (( ${#prev} <= ${#PWD} )); then echo "The unthinkable happened"; break; fi
