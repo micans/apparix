@@ -21,16 +21,24 @@ What apparix provides:
 - This works at arbitrary levels:\
   `to foo barzoodle/ti<TAB>`
 
-- There are several *distant* listing/editing commands (see table below).
-  In all cases, tab completions work on subdirectories and files.
+- When I mentioned that the set of commands is tiny, what I really meant
+  was that the set of cd-related command is tiny; basically `bm` and `to`.
+  There are several *distant* listing/editing commands (see table below).
+  In all cases (full table further below), tab completions work on subdirectories and files.
 
-When I mentioned that the set of commands is tiny, what I really meant
-was that the set of cd-related command is tiny; basically `bm` and `to`.
-Having bookmarks for directories is useful for other commands
-as well, such as distant listing, finding and editing, plus convenience
-queries such as the age old questions: Am I a Bookmark? (`amibm`)
-Am I or Is Any of My Parents a Bookmark? (`above`), and
-Am I or is Any of My Children a Bookmark? (`below`).
+  I use `ae` (edit), `av` (view), `aput` (copy to), `aget` (copy from), `als` (list), `acat` (cat) a
+  lot. e.g.
+
+```
+  aput hb -- pick                # copy pick to $HOME/bin, '--' required separator.
+  ae m TODO                      # edit mcl TODO file
+  av hb somescript               # view somescript
+  als m src -ltr                 # list mcl src subdirectory with -ltr ls options 
+  aget foo data/manifest.txt     # copy $(apparish data)/manifest.txt to current directory
+```
+
+Other noteworthy functions are `amibm` (Am I a Bookmark, for use in PROMPT_COMMAND),
+`above` (look for bookmarks upwards from `$PWD`) and `below` (similarly downwards).
 The following table is the output of the apparix `ahoy` helper function:
 
 
@@ -58,8 +66,8 @@ Apparix functions, grouped and roughly ordered by expected use.
   aldr MARK [SUBDIR]      Like ald, recursively
 ------------------------
   amibm                   See if current directory is a bookmark
-  above                   List . and all parents along bookmark names
-  below                   List . and all children along bookmark names
+  above                   List . and all parents with bookmark names
+  below                   List . and all children with bookmark names
   bmgrep PATTERN          List all marks where target matches PATTERN
 --------------------
   agather MARK            List all targets for bookmark mark
@@ -102,7 +110,7 @@ To list all bookmarks traversing upwards use `above`. This can be useful to
 re-orient yourself when deep in some file hierarchy. Output e.g.
 
 ```
-ax+ a- apx          /home/stijn/git/micans/apparix
+ax a apx            /home/stijn/git/micans/apparix
 gm                  /home/stijn/git/micans
 git                 /home/stijn/git
 h                   /home/stijn
