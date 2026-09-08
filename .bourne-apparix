@@ -133,8 +133,8 @@ touch "$APPARIXRC"
 touch "$APPARIXEXPAND"
 touch "$APPARIXLOG"
 
-APPARIX_FILE_FUNCTIONS=( a ae av acat aget toot apparish aghast ) # Huffman (remove a)
-APPARIX_DIR_FUNCTIONS=( to als aput ald aldr amd todo rme )
+APPARIX_FILE_FUNCTIONS=( a ae als av acat aget aless toot apparish aghast ) # Huffman (remove a)
+APPARIX_DIR_FUNCTIONS=( to aput ald aldr amd todo rme )
 
 # require one or two
 function apx_onetwo() {
@@ -221,7 +221,12 @@ function als() {
 
 # apparix mkdir in mark
 function amd() {
-    amux "$@" ++ mkdir --
+    amux "$@" ++ mkdir -p --
+}
+
+# apparix less file
+function aless() {
+    amux "$@" ++ less --
 }
 
 # apparix view of file
