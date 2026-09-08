@@ -229,6 +229,11 @@ function aless() {
     amux "$@" ++ less --
 }
 
+# apparix less file
+function aless() {
+    amux "$@" ++ less --
+}
+
 # apparix view of file
 function av() {
     amux "$@" ++ view --
